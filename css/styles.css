@@ -1,0 +1,228 @@
+body{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.main{
+    background-color: white;
+    height: 90vh;
+    width: 92vw;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.main .header{
+    display: flex;
+    width: 85%;
+    height: 15%;  
+    border-bottom: solid 1px hsl(240, 3%, 88%);
+    justify-content: space-between;
+}
+.main .header .inicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.main .header .perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.main .header .inicio .logo{
+    height: 20px;
+}
+.main .header .perfil .avatar{
+    height: 40px;
+}
+.main .header .inicio .options{
+    display: flex;  
+}
+.main .header .inicio .options li{
+    margin-right: 20px;
+    transition: 0.2s ease-in-out;
+}
+.main .header .inicio .options li:hover{
+    color: hsl(26, 100%, 55%);
+    cursor: pointer;
+}
+.main .product{
+    width: 85%;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: center;
+    margin-top: 60px;
+    
+}
+.main .product .product-description h3{
+    color: hsl(26, 100%, 55%);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.main .product .product-description h2{
+    font-weight: 700;
+    font-size: 30px;
+}
+.main .product .product-description .description{
+    margin: 20px 0px;
+}
+.main .product .product-description .promo-price{
+    font-weight: 700;
+    font-size: 20px;
+}
+.main .product .product-description .promo-price span{
+    color: hsl(26, 100%, 55%);
+    font-weight: 700;
+    background-color: hsl(25, 100%, 94%);
+    padding: 3px 5px;
+    border-radius: 10%;
+}
+.main .product .product-description .old-price{
+    color: hsl(220, 14%, 75%);
+    font-weight: 700;
+    margin: 10px 0px;
+    text-decoration: line-through;
+}
+.main .product .product-images{
+    text-align: center;
+    width: fit-content;
+}
+.main .product .product-images .thumbnail{
+    height: 45vh; 
+    border-radius: 5%;
+    margin-bottom: 10px;
+}
+.main .product .product-images ul {
+    display: flex;
+    justify-content: space-between;
+}
+.main .product .product-images ul li img{
+    height: 50px;
+    border-radius: 10%;
+}
+.main .product .product-description{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.main .product .product-description .buy{
+    display: grid;
+    grid-template-columns: 25% 70%;
+    gap: 10px;
+}
+.main .product .product-description .buy .counter{
+    display: flex;
+    background-color: hsl(223, 64%, 98%);
+    justify-content: space-between;
+    padding: 15px 10px;
+    border-radius: 5px;
+}
+.main .product .product-description .buy .counter a{
+    color: hsl(26, 100%, 55%);
+    font-weight: 700;
+}
+.main .product .product-description .buy .counter p, 
+.main .product .product-description .buy .add-to-cart{
+    font-weight: 700;
+}
+.main .product .product-description .buy .add-to-cart{ 
+    background-color: hsl(26, 100%, 55%);
+    align-self: center;
+    padding: 15px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: hsl(0, 0%, 100%);
+    transition: 0.2s ease-in-out;
+}
+.main .product .product-description .buy .add-to-cart .cart{
+    height: 15px;
+    filter: brightness(0) invert(1);
+} 
+.main .product .product-description .buy .add-to-cart:hover{
+    box-shadow: hsl(26, 50%, 55%) 0px 5px 15px;
+}  
+.modal {
+    position: absolute;
+    padding-top: 50px;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(10, 10, 10, 0.749);
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.modal img{
+    height: 60vh;
+    border-radius: 5%;
+}
+
+.modal ul li img{
+    height: 50px;
+    margin: 20px 10px;
+    border-radius: 10%;
+}
+.modal .fechar{
+    color: white;
+    font-weight: 700;
+    font-size: 20px; 
+    cursor: pointer;
+}
+.conteudo-modal {
+    height: 100vh;
+    border-radius: 5px;
+    gap: 15px;
+}
+.modal div{
+    align-items: center;
+    display: flex;
+}
+.modal div .seta img{
+    height: 10px;
+}
+.modal div .seta{
+    background-color: hsl(223, 64%, 98%);  
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.modal div .seta.prev{
+    transform: translateX(15px);
+}
+.modal div .seta.next{
+    transform: translateX(-15px);
+}
+.modal.aberto {
+    opacity: 1;
+    visibility: visible;
+}
+
+.active{
+    border: solid hsl(26, 100%, 55%) 2px;
+    opacity: 0.4;
+}
+.not-active{
+    opacity: 1;
+    border: none;
+}
+.cart-count{
+    background-color: hsl(26, 100%, 55%);
+    color: white;
+    padding: 0px 4px;
+    border-radius: 3px;
+    top: 47px;
+    transform: translateX(-9px);
+    position: absolute;
+    font-size: 10px;
+}
