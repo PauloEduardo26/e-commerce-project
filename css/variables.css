@@ -1,0 +1,9 @@
+:root{
+    --cor-primaria: hsl(26, 100%, 55%);
+    --background-color: aliceblue;
+    --container-color: white;
+    --cor-secundaria: hsl(25, 100%, 94%);
+    --seta-background-color: hsl(223, 64%, 98%); 
+    --modal-background-color: rgba(10, 10, 10, 0.749);
+    --box-shadow: hsl(26, 50%, 55%);
+}

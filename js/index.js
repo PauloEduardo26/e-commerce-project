@@ -1,4 +1,4 @@
-const thumbs = document.querySelectorAll(".thumb");
+let thumbs = document.querySelectorAll(".thumb")
 let thumbnail = document.querySelector(".thumbnail");
 const modal = document.querySelector(".modal");
 const fecharModal = document.querySelector(".fechar");
@@ -9,58 +9,84 @@ const modalNext = document.querySelector(".next");
 const plusButton = document.querySelector(".plus");
 const minusButton = document.querySelector(".minus");
 const addToCart = document.querySelector(".add-to-cart");
+let cartCount = document.querySelector(".cart-count");
+let counter = document.querySelector(".counter-text");
+const mobileNext = document.querySelector(".mobile-next");
+const mobilePrev = document.querySelector(".mobile-prev");
+const menu = document.querySelector(".menu");
+const fechar = document.querySelector(".close-btn");
+const overlay = document.querySelector(".overlay");
+const options = document.querySelector(".options");
 
 function handleThumbs(){
-    let previousElement = null;
-    let previousModalThumb = null;
-
+    let previousElement = 1;
     thumbs.forEach((element, index) =>{
-        
         element.addEventListener("click", ()=> {
-            thumbs[0].classList.remove("active")
-            thumbnail.src = `http://127.0.0.1:5500/images/image-product-${index+1}.jpg`
-            modalImage.src = `http://127.0.0.1:5500/images/image-product-${index+1}.jpg`
-
-            modalNext.addEventListener("click", ()=>{
-                if(index<4){
-                    index++;
-                    modalImage.src = `http://127.0.0.1:5500/images/image-product-${index}.jpg`
-                    thumbnail.src = `http://127.0.0.1:5500/images/image-product-${index}.jpg`
-                }
-            });
-
-            modalPrev.addEventListener("click", ()=>{
-                if(index>1){
-                    index--;
-                    modalImage.src = `http://127.0.0.1:5500/images/image-product-${index}.jpg`
-                    thumbnail.src = `http://127.0.0.1:5500/images/image-product-${index}.jpg`
-                }
-            });
-
-            if (previousElement) {
-                previousElement.classList.add("not-active")
-                previousModalThumb.classList.add("not-active")
-            }
-            
-            element.classList.add("active")
-            modalThumbs[index].classList.add("active")
-
-            previousElement = element;
-            previousModalThumb = modalThumbs[index];
+            thumbnail.src = `http://127.0.0.1:5500/images/image-product-${index}.jpg`;
+            modalImage.src = `http://127.0.0.1:5500/images/image-product-${index}.jpg`;
+            thumbs[previousElement].classList.remove("active");
+            element.classList.add("active");
+            modalThumbs[previousElement].classList.remove("active");
+            modalThumbs[index].classList.add("active");
+            previousElement=index
         })
-    });
-
-    thumbnail.addEventListener("click", ()=>{
-        modal.classList.add("aberto")
-        fecharModal.addEventListener("click", ()=>{
-            modal.classList.remove("aberto")
-        });
-    });
-
+    })
+    modalNext.addEventListener("click", function(){    
+        if(previousElement<=3){
+            previousElement++;
+            thumbnail.src = `http://127.0.0.1:5500/images/image-product-${previousElement}.jpg`;
+            modalImage.src = `http://127.0.0.1:5500/images/image-product-${previousElement}.jpg`;
+            thumbs[previousElement-1].classList.remove("active");
+            thumbs[previousElement].classList.add("active");
+            modalThumbs[previousElement].classList.add("active");
+            modalThumbs[previousElement-1].classList.remove("active");
+        } 
+    })
+    modalPrev.addEventListener("click", function(){
+        if(previousElement>1){
+            previousElement--;
+            thumbnail.src = `http://127.0.0.1:5500/images/image-product-${previousElement}.jpg`;
+            modalImage.src = `http://127.0.0.1:5500/images/image-product-${previousElement}.jpg`;
+            thumbs[previousElement+1].classList.remove("active");
+            thumbs[previousElement].classList.add("active");
+            modalThumbs[previousElement].classList.add("active");
+            modalThumbs[previousElement+1].classList.remove("active");
+        }
+    })
 };
+
+function handleCloseModal(){
+    if (window.innerWidth > 680) {
+        thumbnail.addEventListener("click", ()=>{
+            modal.classList.add("aberto")
+            fecharModal.addEventListener("click", ()=>{
+                modal.classList.remove("aberto")
+            });
+        });
+    } 
+}
+
+function mobileThumb(){
+    if (window.innerWidth < 681) {
+        let index=1;
+        mobileNext.addEventListener("click", (e)=>{
+            e.preventDefault()
+            if(index<4){
+                index++;
+                thumbnail.src = `http://127.0.0.1:5500/images/image-product-${index}.jpg`;
+            }
+        })
+        mobilePrev.addEventListener("click", (e)=>{
+            e.preventDefault()
+            if(index>1){
+                index--;
+                thumbnail.src = `http://127.0.0.1:5500/images/image-product-${index}.jpg`;
+            }
+        })
+    }
+}
+
 function handleCounter(){
-    let counter = document.querySelector(".counter-text")
-    
     plusButton.addEventListener("click", (event)=>{
         event.preventDefault();
         counter.innerHTML++;
@@ -68,15 +94,28 @@ function handleCounter(){
     minusButton.addEventListener("click", (event)=>{
         event.preventDefault();
         if(counter.innerHTML>0)counter.innerHTML--;
-        
     })
     addToCart.addEventListener("click", (event)=>{
         event.preventDefault();
-        let cartCount = document.querySelector(".cart-count");
         cartCount.innerHTML = counter.innerHTML
     })
-   
 }
 
+function handleMenu(){
+    menu.addEventListener("click", (e)=>{
+        options.classList.add("hidden")
+        overlay.classList.add('hidden') 
+    })
+    fechar.addEventListener("click", ()=>{
+        options.classList.remove("hidden")
+        overlay.classList.remove('hidden')
+    })    
+}
+const cart = document.querySelector(".cart");
+
+
+handleMenu();
+handleCloseModal();
+mobileThumb();
 handleCounter();
 handleThumbs();
