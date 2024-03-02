@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/store-solid.svg" type="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="/css/global-style.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+
+    <title>E-commerce product page</title>
+</head>
+<body>
+    <main class="main">
+        <header class="header">
+            <div class="inicio">
+                <img src="./images/icon-menu.svg" class="hidden menu" alt="menu">
+                <img src="./images/logo.svg" alt="logo da loja" class="logo">   
+                <div class="overlay"></div>   
+                <ul class="options">
+                    <img src="./images/icon-close.svg" class="close-btn hidden" alt="close">
+                    <li>Collections</li>
+                    <li>Men</li>
+                    <li>Women</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        
+            <div class="perfil">
+                <div class="cart-div">
+                    <div class="cart-btn">
+                        <img src="./images/icon-cart.svg" alt="carrinho" class="cart">  
+                        <span class="cart-count"></span>
+                    </div>
+
+                    <div class="cart-wrp invisible">
+                        <p class="cart-heading">Cart</p>
+                        <div class="cart-content empty">
+                            <p>Your cart is empty</p>
+                        </div>
+                    </div>
+                </div>
+                  
+                <img src="./images/image-avatar.png" alt="avatar" class="avatar">
+            </div>
+        </header>
+
+        <div class="product">
+            <div class="product-images">
+                <div class="mobile-setas">
+                    <a href="" class="mobile-prev">
+                        <img src="./images/icon-previous.svg" alt="">
+                    </a>
+                    <a href="" class="mobile-next">
+                        <img src="./images/icon-next.svg" alt="">
+                    </a>
+                </div>
+                <div class="modal">
+                    <span class="fechar">X</span>
+                    <div>
+                        <div class="seta prev">
+                            <img src="./images/icon-previous.svg" alt="seta">
+                        </div>
+                        <img src="./images/image-product-1.jpg" alt="thumb" class="conteudo-modal">
+                        <div class="seta next">
+                            <img src="./images/icon-next.svg" alt="seta">
+                        </div>     
+                    </div>
+                    <ul>
+                        <li class="modal-thumb thumb-none"></li>
+                        <li><img src="./images/image-product-1-thumbnail.jpg" alt="thumb" class="modal-thumb"></li>
+                        <li><img src="./images/image-product-2-thumbnail.jpg" alt="thumb" class="modal-thumb"></li>
+                        <li><img src="./images/image-product-3-thumbnail.jpg" alt="thumb" class="modal-thumb"></li>
+                        <li><img src="./images/image-product-4-thumbnail.jpg" alt="thumb" class="modal-thumb"></li>
+                    </ul>
+                </div>
+                <img src="./images/image-product-1.jpg" alt="thumb" class="thumbnail">
+                <ul class="out-modal">
+                    <li class="thumb thumb-none"></li>
+                    <li><img src="./images/image-product-1-thumbnail.jpg" alt="thumb" class="thumb active"></li>
+                    <li><img src="./images/image-product-2-thumbnail.jpg" alt="thumb" class="thumb"></li>
+                    <li><img src="./images/image-product-3-thumbnail.jpg" alt="thumb" class="thumb"></li>
+                    <li><img src="./images/image-product-4-thumbnail.jpg" alt="thumb" class="thumb"></li>
+                </ul>
+            </div>
+
+            <div class="product-description">
+                <h3>Sneaker Company</h3>
+                <h2>Fall Limited Edition Sneakers</h2>
+                <p class="description">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+                <div class="prices">
+                    <p class="promo-price">$125.00 <span>50%</span></p>
+                    <p class="old-price">$250.00</p>
+                </div>
+                
+                <div class="buy">
+                    <div class="counter">
+                        <a href="" class="minus">-</a>
+                        <p class="counter-text">0</p>
+                        <a href="" class="plus">+</a>
+                    </div>
+                    <a href="/" class="add-to-cart">
+                        <img src="./images/icon-cart.svg" alt="carrinho" class="cart">Add to cart
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="./js/index.js"></script>
+</body>
+</html>
