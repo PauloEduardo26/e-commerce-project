@@ -130,7 +130,7 @@ cart.addEventListener('click', () => {
                         <b>$${total}</b>
                       </div>
                     </div>
-                    <button class="checkout-btn">Checkout</button>
+                    <a href="https://buy.stripe.com/6oE17e6TSdDE7egbII" target="_blank" class="checkout-btn">Checkout</a>
                   </div>`;
   }
 
